@@ -1,0 +1,1285 @@
+.header{
+    height: var(--header-height);
+    background-image: linear-gradient(0,#fe6433, #f53e2d);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+.main{
+    overflow: hidden;
+    /* sua loi co 1 ty khoang trang o 1 ben loi nay thuong do the lon nhat cua chung ta chua co thuoc tinh overflow hiden */
+}
+.header__navbar{
+    display: flex;
+    justify-content: space-between;
+    height: var(--navbar-height);
+}
+.header__navbar-list{
+    list-style: none;
+    display: inline-flex;
+    padding-left: 0px; 
+    margin-top: 4px;
+    
+}
+.header__navbar-item{
+    display: inline-block;
+    margin: 0 8px;
+    position: relative;/*lam goc cho phan gach cua phan tu con, boi vi phan tu gia .header__navbar-item--separate::after nam phia sau 
+    cai nay nen duoc tinh la con */
+}
+
+/* an phan header__sort-bar tren pc*/
+.header__sort-bar{
+    display: none;
+
+}
+
+/* day la phan nguoi dung */
+.header__navbar-user{
+    display: flex;
+    margin-top: 3px;
+}
+.header__navbar-user-icon{
+    font-size: 1.4rem;
+}
+.header__navbar-user-name{
+    margin-left:4px;
+    font-size: 1.4rem;
+    font-weight: 400;
+    position: relative;
+}
+/* day la phan menu cua phan dang nhap va dang xuat */
+.header__navbar-user-menu{
+    position: absolute;
+    list-style-type: none;
+    background-color: #fff;
+    width: 160px;
+    top: 22px;
+    right: 0;
+    padding-left: 0;
+    z-index: 2;
+    box-shadow: 0 1px 2px #e0e0e0;
+    border-radius: 2px;
+    /* padding-top: 12px; */
+    display: none;
+}
+.header__navbar-user:hover .header__navbar-user-menu{
+    display: block;
+}
+.header__navbar-user-menu-item a{
+    text-decoration: none;
+    color: var(--text-color);
+    display: block;
+}
+.header__navbar-user-menu-item{
+    padding: 8px 12px;
+}
+.header__navbar-user-menu-item:hover{
+    background-color: #fafafa;
+}
+.header__navbar-user-menu-item-separate{
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+.header__navbar-user-menu-item:first-child{
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+.header__navbar-user-menu-item:first-child{
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    padding-top: 12px;
+}
+.header__navbar-user-menu::before{
+    display: block;
+    content: "";
+    position: absolute;
+    border-color: transparent transparent var(--white-color) transparent;
+    border-width: 16px 24px;
+    border-style: solid;
+    top: -24px;
+    right: 36px;
+}
+
+.header__navbar-user-menu::after{
+    right: 0;
+    display: block;
+    content: "";
+    position: absolute;
+    background-color: transparent;
+    width: 82%;
+    height: 20px;
+    top: -12px;
+}
+
+
+.header__navbar-item,
+.header__navbar-item-link{
+    font-size: 1.3rem;/*tuong duong voi 15px*/
+    text-decoration: none;
+    font-weight: 100;
+    color: var(--white-color);
+
+}
+.header__navbar-item:hover,
+.header__navbar-icon-link:hover,
+.header__navbar-item-link:hover{
+    color: rgba(255,255,255, 0.7);
+    cursor: pointer;
+
+}
+.header__navbar-item--strong{
+    font-weight: 400;
+    margin-top: 2px;/*phan nay la bi loi nen tu sua luon*/
+}
+/* phan nay la tao cai gach o sau phan vao cua hang tren ung dung va phan dang ky */
+.header__navbar-item--separate::after{
+    content: "";
+    display: block;
+    position: absolute;
+    border-left: 1px solid #FB9086;
+    height: 16px;
+    right: -9px;
+    top: 0;
+}
+.header__navbar-icon-link{
+    color: var(--white-color);
+    text-decoration: none;
+}
+.header__navbar-icon-link:nth-child(2){
+    /* lop gia nay de select den phan tu con thu 2 cua the cha chung ta su dung khi khong the dung duoc lop gia first child con neu su dung duoc
+    first child thi phai su dung first child cai nay su dung o the con */
+    margin-left: 3px;/*sua loi bi gan qua*/
+}
+/* css rieng cho cac 4 icon */
+.header__navbar-icon{
+    font-size: 1.8rem;
+    margin: 0 4px;
+}
+/* css rieng cho the li khong an vao duoc */
+.header__navbar-item--no-pointer{
+    cursor: text;
+    color: var(--white-color);
+}
+/* phan QR code */
+.header__qr{
+    position: absolute;
+    background-color: var(--white-color);
+    padding: 8px;
+    top:120%;
+    /* khi top 120% co van de o day do la phan tu con se khong con nam sat voi phan tu cha nua no se cach ra 1 doan khi do se khong 
+    the di chuot den ma qr boi vi no khong con hien len nua, chi khi hover vao the li do thi ma qr moi hien , nhung ta da cho no cach 
+    ra 1 khoang la 20% nen se khong hover chung the li nua khi do ta can 1 cai cau noi de lap day khoang trong giua pt cha va pt con
+    de hover qua do van se hien len ma qr */
+    width: 186px;
+    left: 0;
+    border-radius: 5px;
+    display: none;
+    /* Animation */
+    animation: fadeIn ease-in 1s;
+    z-index: 1;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+.header__qr-img{
+    width: 100%;
+
+}
+.header__qr-apps{
+    display: flex;
+    justify-content: space-between;
+
+}
+.header__qr-link:first-child{
+    margin-left: 11px;
+}
+
+.header__qr-link:last-child{
+    margin-right: 11px;
+}
+.header__qr-download-img{
+    height: 14px;
+    /* phai cho anh nho bot thi mot vua vao khung duoc */
+}
+.header__navbar-item--qr:hover .header__qr{
+    display: block;
+}
+/* day chinh la phan cau noi de co the di chuot tu the cha sang the con ma van hien duoc ma qr code */
+.header__qr::before{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    top: -4px;
+    left: 0px;
+
+}
+/*  */
+.header__notify{
+    position: absolute;
+    width: 404px;
+    top: 118%;
+    background-color:var(--white-color);
+    right: 0;
+    border: 1px solid #726666;
+    transform-origin: calc(100% - 32px) top;/*dung de thay doi vi tri bat dau lon len cua animation */
+    animation: headerNotifyGrowth ease-in 0.2s;
+    display: none;
+    z-index: 1;/*can cho noi len tren neu khong se bi o tim kiem che mat*/
+    border-radius: 2px;
+    
+}
+
+.header__navbar-item:hover .header__notify{
+    display: block;/*lam hien phan thong bao*/
+}
+@keyframes headerNotifyGrowth {
+    from{
+        opacity: 0;
+        transform: scale(0);/*ban dau la kich thuoc bang 0*/
+    }
+    to{
+        transform: scale(1);/*luc sau la kich thuoc bang 1*/
+        opacity: 1;
+    }
+}
+/* phan lam mui ten van la ung dung cua lop gia*/
+.header__notify::before{
+    border-width: 20px 30px;
+    border-style:solid ;
+    border-color: transparent transparent var(--white-color) transparent;
+    content: "";
+    display: block;
+    position: absolute;
+    top: -28px;
+    right: -2px;
+   
+}
+/* phan cau noi giua chu thong bao va danh sach thong bao  */
+.header__notify::after{
+    display: block;
+    content: '';
+    width: 100px;
+    height: 16px;
+    background-color: transparent;
+    position: absolute;
+    top:-8px;
+    right: 0px;
+
+}
+.header__notify-header{
+    height: 40px;
+    background-color: var(--white-color);
+    cursor: default;/*boi vi cai thong bao nay khi de chuot vao khong duoc thanh hinh ban tay ma no dang nam ben trong the a nen chiu
+    tac dung cua cai hinh ban tay vi vay phai bo no di*/
+    
+
+}
+.header__notify-header h3{
+    color: #999;
+    font-size: 1.4rem;
+    margin: 0 0 0 12px;/*boi vi mac dinh the h3 da co margin do trinh duyet nen can dua ve 0px*/
+    line-height: 40px;
+    user-select: none;/*thuoc tinh nay khong cho nguoi dung copy duoc noi dung text*/
+}
+.header__notify-list{
+    padding: 0;
+    list-style-type: none;
+    overflow-y: auto;
+    max-height: 40vh;
+
+}
+.header__notify-items{
+    padding: 12px;
+}
+.header__notify-items--viewed{
+    background-color: rgba(238,75,43,0.1);
+}
+.header__notify-items:hover{
+    background-color: #f7f7f7;
+}
+
+.header__notify-link{
+    text-decoration: none;
+    display: flex;
+}
+.header__notify-img{
+    width: 48px;
+    height: 36px;
+
+}
+.header__notify-info{
+    margin-left: 12px;
+    flex: 1;
+
+}
+.header__notify-name{
+    display: block;
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+    font-weight: 400;
+    color: var(--black-color);
+    height: 2.8rem;
+    overflow: hidden;
+    display: -webkit-box;/*cai nay ho tro de hien thi dau 3 cham*/
+    -webkit-box-orient: vertical;/* huong cua dong chu theo chieu nao dong 1 o tren dong 2 o duoi thi huong se la chieu doc*/
+    -webkit-line-clamp: 2;/*giup chung ta gioi han duoc so dong hien thi len va sau do no se hien thi dau 3 cham o phia sau dong do*/
+    text-overflow: ellipsis;
+    
+}
+.header__notify-description{
+    display: block;
+    font-size: 1.2rem;
+    color: #756F6E;
+    /* margin-top: 4px; */
+    line-height: 1.4rem;
+}
+.footer-notify{
+    display: flex;
+    /* truong hop nay la dac biet rat kho de giai thich tai sao kich thuoc cua the div khong tang theo nut bam cho nen truong hop nay 
+    dung display flex o the cha thi the con khi padding the cha se tu tang kich thuoc cho phu hop */
+}
+.footer-notify-btn{
+    /* display: block; 
+    text-align: center; */
+    text-decoration: none;
+    margin: auto;
+    color: var(--text-color);
+    padding: 8px 48px;
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+/* auth-form modal */
+/* day la phan dung chung cho ca dang ky va dang nhap nhung dau tien la dang ky truoc */
+.auth-form{
+    width: 500px;
+    background-color: var(--white-color);
+    border-radius: 5px;
+    overflow: hidden;
+
+}
+.auth-form__container{
+padding: 16px 32px 0 32px;
+}
+.auth-form__header{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 12px 0 12px;
+    margin-top: 12px;
+}
+.auth-form__heading{
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--text-color);
+}
+.auth-form__switch-btn{
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+.auth-form__form{
+    margin-top: 16px;
+}
+.form__group{
+
+}
+.auth-form__input{
+    width: 100%;
+    height: 40px;
+    margin-top: 16px;
+    padding: 0 12px;
+    font-size: 1.4rem;
+    border: 2px #dbdbdb solid;
+    border-radius: 2px;
+    outline: none;
+}
+/* lop gia nay la de hien border dam len khi di chuyen con tro chuot vao the input */
+.auth-form__input:focus{
+    border-color:#888 ;
+}
+.auth-form__aside{
+    margin-top: 20px;
+}
+.auth-form__policy-text{
+    font-size: 1.4rem;
+    text-align: center;
+    line-height: 1.6;
+}
+.auth-form__text-link{
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+.auth-form__control{
+    margin-top: 80px;
+    display: flex;
+    justify-content: flex-end;
+}
+.auth-form__control-back{
+    margin-right: 8px;
+}
+.auth-form__socials{
+    padding: 14px 36px;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 22px;
+}
+.btn{
+
+}
+.btn--with-icon{
+height: 30px;
+}
+
+.auth-form__socials-icon{
+    font-size: 1.8rem;
+}
+
+.auth-form__socials--face{
+    background-color: #3A5A98;
+    color: var(--white-color);
+    font-size: 1.4rem;
+    text-decoration: none;
+}
+.auth-form__socials--gogle{
+    font-size: 1.4rem;
+    color: var(--text-color);
+    text-decoration: none;
+}
+.auth-form__socials--title{
+    margin: 0 12px;
+    padding: 0 16px;
+}
+/* day la phan dang nhap */
+.auth-form__help{
+    display: flex;
+    justify-content: flex-end;
+}
+.auth-form__help-link{
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: #939393;
+}
+.auth-form__help-separate{
+    border-left: 1px solid #EAEAEA;
+    display: block;
+    margin-left: 4px;
+    height: 22px;
+    margin: -3px 12px 0 12px;
+}
+.auth-form__help-forgot{
+    color:var(--primary-color);
+}
+/* het phan auth-form */
+/* phan o tim kiem */
+.header-with-search{
+    height:var(--header-with-search-height);
+    display: flex;
+    align-items: center;/*phan nay lam cho tat ca cac the con truc tiep cua phan search se duoc nam chinh giua chieu cao cua o search do*/
+    margin: 0 0 0 -4px;
+
+}
+/* an phan o search tren pc */
+.header__mobile-search{
+    display: none;
+}
+/* phan logo dau tien */
+.header__logo{
+    width: 200px;
+}
+.header__logo-link{
+    display: block;
+    line-height: 0;
+}
+.header__logo-img{
+    width: 150px;
+}
+.header__search{
+    height: 40px;
+    background-color: var(--white-color);
+    flex: 1;
+    display: flex;
+    align-items: center;
+    /* justify-content: flex-end; */
+    border-radius: 3px;
+}
+.header__search-btn{
+    width: 60px;
+    height: 34px;
+    background-color: var(--primary-color);
+    text-align: center;
+    margin-right: 2px;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+}
+.header__search-btn:hover{
+    background-color: #f9765c;
+    cursor: pointer;
+}
+.header__search-btn-icon{
+    font-size: 2.0rem;
+    color: var(--white-color);
+    line-height: 34px;
+    font-weight: 100;
+    
+}
+.header__search-input{
+    flex: 1;
+    position: relative;
+}
+.header__search-text{
+    font-size: 1.4rem;
+    width: 100%;
+    padding-left:  12px;
+    border: none;
+    outline: none;
+    color: var(--text-color);
+}
+
+
+/* phan gio hang */
+.header__shoping{
+    width: 150px;
+    text-align: center;
+    position: relative;
+      
+}
+.header__shoping-icon{
+    color: var(--white-color);
+    font-size: 2.6rem;
+    font-weight: 400;
+}
+/* .header__shoping-cart-wrap{
+    display: inline-block;
+    padding: 0 12px;
+    cursor: pointer;
+} */
+.header__shoping-wrap:hover .header__shoping-list{
+    /*sua loi khi de vao icon khong hien len nen them 1 the nua nhom no lai neu hover vao header__shoping thi no lai to qua*/
+    display: block;
+}
+.header__shoping-list{
+    position: absolute;
+    background-color: #fff;
+    width: 400px;
+    border-radius: 2px;
+    top: calc(100% + 10px);
+    right: 48px;
+    box-shadow: 0 1px 3.125rem 0 rgba(0,0,0,0.2);
+    animation: fadeIn ease-in 0.2s;
+    cursor: default;
+    display: none;
+    z-index: 1;
+
+}
+
+.header__shoping-list::before{
+    content: "";
+    display: block;
+    border-width: 16px 24px;
+    border-style: solid;
+    border-color: transparent transparent var(--white-color) transparent;
+    position: absolute;
+    top: -24px;
+    right: 1px;
+    cursor: pointer;
+}
+/* phan khong co san pham */
+.header__shoping-list--no-cart{
+    padding: 0 28px;
+}
+.header__shoping-no-cart-img{
+    width: 54%;
+    display: none;
+}
+.header__shoping-list--no-cart-msg{
+    font-size: 1.4rem;
+    color: var(--text-color);
+    text-align: center;
+    display: block;
+    margin-bottom: 16px;
+    display: none;
+}
+.header__shoping-list--no-cart .header__shoping-no-cart-img,
+.header__shoping-list--no-cart .header__shoping-list--no-cart-msg{
+    /* day ka phan danh cho khong co san pham khi hover vao classs wrap thi se hien len header__shoping-list 
+    va nhung class ben trong cua list se duoc hien ra */
+    display: block;
+    margin-left:auto ;
+    margin-right: auto;
+}
+.header__shoping-notice{
+    position: absolute;
+    background-color: var(--white-color);
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+    border-radius: 16px;
+    padding: 0.5px 5px;
+    right: 44px;
+    top: -5px;
+    border: 2px solid #EE4D2D;
+}
+/* phan co san pham */
+.header__shoping-heading{
+    font-size: 1.4rem;
+    color: #666;
+    font-weight: 400;
+    display: flex;
+    justify-content: left;
+    margin: 12px 0 10px 12px;
+}
+.header__shoping-list-items{
+    padding-left: 0;
+    max-height: 50vh;/*tuc la chieu cao bang 50 % chieu cao cua trinh duyet vh la viewport hieght*/
+    /*tao thanh scoll theo chieu y la chieu doc*/
+    list-style-type: none;
+    width: 400px;
+    overflow-y: auto;
+}
+.header__shoping-item{
+    display: flex;
+  justify-content: space-between;
+  padding: 12px;
+
+}
+.header__shoping-item:hover{
+    background-color: #f7f7f7;
+}
+.header__shoping-img{
+    width: 42px;
+    height: 42px;
+    border: 1px solid #999;
+
+}
+.header__shoping-item-info{
+    width: 100%;/*de cho 2 phan tu ben tren du khoang cach de cach xa nhau ra*/
+    padding-left: 12px;
+
+}
+.header-shoping-item-head{
+    display: flex;
+    justify-content: space-between;
+      
+}
+
+.header__shoping-item-name{
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: justify;
+    font-size: 1.4rem;
+    flex:1;/*cho chiem not phan chieu ngagn con lai*/
+    line-height: 1.4rem;
+    height: 2.9rem;
+    font-weight: 400;
+    padding-right: 8px;
+    padding-top: 1px;
+
+    
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+}
+.header__shoping-item-price{
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    font-weight: 400;
+}
+.header__shoping-item-multiply{
+    font-size: 1.2rem;
+    color: var(--text-color);
+    font-weight: 400;
+}
+.header__shoping-item-quantity{
+    font-size: 1.4rem;
+    color: var(--text-color);
+    font-weight: 400;
+    margin-right: 1px;
+}
+
+.header__shoping-item-body{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2px;
+}
+.header__shoping-item-desc{
+    color:#757575;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+.header__shoping-item-delete{
+    color: var(--text-color);
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+.header__shoping-item-delete:hover{
+    color: var(--primary-color);
+    cursor: pointer;
+}
+.header__shoping-btn{
+    float: right;
+    margin-right: 12px;
+    margin-bottom: 12px;
+    margin-top:8px;
+    text-decoration: none;
+}
+.header__shoping-btn:hover{
+    background-color: #F05D41;
+}
+.has-cart{
+    display:none;
+}
+.header__shoping-list--has-cart .has-cart{
+    /* phan nay de hien thi noi dung cua co san pham khi class has-cart la con cua class header__shoping-list--has-cart thi no se hien thi len*/
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+.header__search-select{
+    border-left: 2px solid #ccc;
+    padding-left: 16px;
+    position: relative;
+    cursor: pointer;
+}
+.headrer__search-select-lable{
+    font-size: 1.4rem;
+    color: #666;
+}
+.headrer__search-select-icon{
+    padding: 0 8px;
+    color: #4A4A4A;
+    opacity: 0.8;
+}
+.header__search-option{
+    list-style-type: none;
+    position: absolute;
+    background-color:var(--white-color);
+    width: 130px;
+    right: 0;
+    padding: 0;
+    top: 22px;
+    box-shadow: 0 0 2px #e0e0e0;
+    border-radius: 3px;
+    display: none;
+    animation: fadeIn ease-in 0.2s;
+    z-index: 1;
+    /* overflow: hidden; */
+   /* de cho the li khong bi hien ra ngoai lam che mat border radius nhung viec lam nay khien cho cau noi se khong co tac dung nua*/
+
+}
+.header__search-option::before{
+    /* day la phan cau noi */
+    display: block;
+    content: "";
+    width: 100%;
+    height: 30px;
+    background-color: transparent;
+    position: absolute;
+    top: -20px;
+}
+.header__search-select:hover .header__search-option{
+    display: block;
+}
+.header__search-option-item{
+    background-color: var(--white-color);
+    padding: 12px 12px;
+    border-radius: 10px;
+}
+/* vi ly do khong su dung duoc overflow hidden nen ta phai xu ly tung border radius cho tung item 1 nhung van phai border cho the cha cua no */
+.header__search-option-item:first-child{
+    border-top-left-radius:3px;
+    border-top-right-radius:3px;
+}
+.header__search-option-item:last-child{
+    border-bottom-left-radius:3px;
+    border-bottom-right-radius:3px;
+}
+.header__search-option-item:hover{
+    background-color: #fafafa;
+    cursor: pointer;
+}
+.header__search-option-item span{
+    font-size: 1.4rem;
+    color: #666;
+    margin-left:4px;
+    padding-left: 4px;
+}
+.header__search-option-item i{
+    margin-right: 8px;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-weight: 200;
+    opacity: 0.8;
+    padding-left: 12px;
+    margin-right: -4px;
+}
+
+
+/* phan lich su tim kiem */
+.header__search-history{
+    /* background-color:var(--white-color); */
+    background-color: #fff;
+    position: absolute;
+    width:calc(100% - 16px);
+    top: 32px;
+    left: 0;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px #666;
+    height: auto;
+    display: none;
+    overflow: hidden;
+    z-index: 1;
+
+
+}
+.header__search-history-list{
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.header__search-history-heading{
+    font-size: 1.4rem;
+    color: #999;
+    padding: 8px 12px;
+    margin:0;
+    font-weight: 200;
+}
+.header__search-history-items a{
+    text-decoration: none;
+    color:var(--text-color);
+    font-size: 1.4rem;
+    line-height: 38px;
+    display: block;
+
+}
+.header__search-history-items{
+    padding: 0 12px;
+    height: 38px;
+}
+.header__search-history-items:hover{
+    background-color: #fafafa;
+    border-radius: 3px;
+}
+/* focus vao o input thi se hien thi ra phan lich su tim kiem  */
+.header__search-text:focus ~ div{
+    display: block;
+}
+
+
+
+/* phan danh muc san pham app container*/
+.app__container{
+    background-color: #F5F5F5;
+    padding-top:calc(var(--header-height) + 36px);
+}
+
+.category{
+    background-color: #fff;
+    border-radius: 2px;
+}
+/* an phan category tren mobile */
+.mobile-category{
+    display:none;
+}
+.category__heading{
+    font-size: 1.5rem;
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 16px 16px 8px 20px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+/* .category__heading-icon{
+    font-size: 1.4rem;
+    margin-right: 4px;
+} */
+.category-list{
+    list-style-type: none;
+    padding-bottom: 8px;
+    border-radius: 2px;
+
+}
+.category-item{
+    position: relative;
+
+}
+.category-item__link{
+    display: block;
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: var(--text-color);
+    padding: 10px 20px;
+    /* position: relative; */
+}
+.category-item::before{
+    display: block;
+    content: "";
+    border-top: 1px solid #dbdbdb;
+    position: absolute;
+    left: 20px;
+    right: 20px;
+}
+.category-item:first-child::before{
+    display: none;
+}
+.category-item__link:hover{
+    color: var(--primary-color);
+}
+.category-item--active .category-item__link{
+    color: var(--primary-color);
+}
+
+/* phan home filter */
+.home-filter{
+    background-color: #EAEAEA;
+    display: flex;
+    align-items: center;
+    padding: 12px 22px;
+    border-radius: 2px;
+}
+
+.home-filter__label{
+    font-size: 1.4rem;
+    color: #555555;
+    margin-right: 16px;
+    
+}
+.home-filter__page{
+    display: flex;
+    align-items: center;
+    margin-left: auto;/*no se tu day han cai box sang het ben phai ma khong can dung justify-content*/
+}
+.home-filter__btn{
+    margin-right: 12px;
+    min-width: 90px;
+    cursor: pointer;
+}
+.home-filter__page-num{
+    font-size: 1.4rem;
+    margin-right: 22px
+}
+.home-filter__page-current{
+    font-size: 1.4rem;
+    color: var(--primary-color);
+
+}
+.home-filter__page-control{
+    border-radius: 2px;
+    overflow: hidden;
+   
+    align-items: center;
+
+
+}
+.home-filter__page-btn{
+    background-color: var(--white-color);
+    width: 36px;
+    height: 36px;
+    display: inline-block;
+    text-align: center;
+
+}
+.home-filter__page-btn:first-child{
+    background-color:#f9f9f9 ;
+    margin-right: -2px;
+    border-right: 0.5px solid #eee;
+    cursor: default;
+    color: #ccc;
+}
+.home-filter__page-icon{
+    margin: auto;
+    line-height: 36px;
+    color: #555;
+
+
+}
+
+.home-product{
+    /* margin-top: -10px; */
+}
+
+/* phan san pham */
+.home-product-item{
+    background-color: var(--white-color);
+    border-radius: 2px;
+    margin-top: 10px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0,0.1);
+    display: block;
+    position: relative;
+    /* top: 0;
+    transition: top linear 0.1s; */
+    transition: tranform linear 0.1s;
+    will-change: tranform;
+    text-decoration: none;
+    /* ly do doi sang the a la vi san pham no bam vao duoc  */
+}
+.home-product-item:hover{
+    /* top: -1px; */
+    box-shadow: 0 1px 20px 0 rgba(0, 0, 0,0.05);/*20px la do mo ra ben ngoai*/
+    transform: translateY(-1px);
+}
+.home-product-item__img{
+/* khong nen su dung the img de hien thi anh ma ta nen dung background-image: boi vi khi su dung the img thi anh nho se bi lap lai con anh lon thi
+se chi nhin duoc 1  phan cua anh */
+    padding-top: 100%;/*100% nay chinh la 100% chieu ngang cua the chua no va se tao thanh hinh vuong*/
+    background-repeat: no-repeat;
+    background-size: contain;/*no se giup nhin duoc toan bo buc anh neu khong co se chi nhin duoc 1 phan cua buc anh boi vi khong du kich thuoc*/
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;    
+
+
+}
+.home-product-item__name{
+    font-size: 1.4rem;
+    color:rgba(0, 0, 0, 0.8);
+    font-weight: 400;
+    margin: 10px;
+    /* phan nay de gioi han so dong xuat hien tren web line height 1.8rem thi chieu cao cua 1 dong la 1.8 muon cho hien thi hai dong thi
+    di xet chieu cao cho no luon la 3.6 nhung phan con lai van se hien thi len nen phai su dung overflow:hidden */
+    line-height: 1.8rem;
+    height: 3.6rem;
+    overflow: hidden;
+    /* phan nay la de hien thi dau ba cham cuoi cung cua dong 2 */
+    
+    display: -webkit-box;/*cai nay ho tro de hien thi dau 3 cham*/
+    -webkit-box-orient: vertical;/* huong cua dong chu theo chieu nao dong 1 o tren dong 2 o duoi thi huong se la chieu doc*/
+    -webkit-line-clamp: 2;/*giup chung ta gioi han duoc so dong hien thi len va sau do no se hien thi dau 3 cham o phia sau dong do*/
+
+    /* text-overflow: ellipsis; */
+}
+.home-product-item__price{
+    display: flex;
+    align-items: baseline;/*cho cac phan tu bang chan nhau*/
+    flex-wrap: wrap;/*de phong khi gia qua lon se vuot kich thuoc item thi no se tu dong xuong dong*/
+}
+.home-product-item__price-old{
+    text-decoration: line-through;/*tao cai gach ngang giua phan tu chu*/
+    color: #666;
+    font-size: 1.4rem;
+    margin-left: 10px;
+
+}
+.home-product-item__price-current{
+    color: var(--primary-color);
+    font-size: 1.6rem;
+    margin-left: 10px;
+
+
+}
+.home-product-item__action{
+    display: flex;
+    /* padding: 8px 10px; */
+    margin: 8px 10px;
+    justify-content: space-between;
+}
+.home-product-item__like{
+    font-size: 1.2rem;
+
+}
+.home-product-item__like-liked{
+
+}
+.home-product-item__like-icon-empty{
+      
+}
+.home-product-item__like-icon-fill{
+    display: none;
+    color: var(--primary-color);
+}
+/* khi da co class .home-product-item__like-liked thi icon den se hien con bo class do di thi icon trang se hien*/
+.home-product-item__like-liked .home-product-item__like-icon-fill{
+    display: block;
+}
+.home-product-item__like-liked .home-product-item__like-icon-empty{
+    display: none;
+}
+
+.home-product-item__rating{
+    font-size: 1.2rem;
+    margin-left: auto;/*margin auto thi phan tu do se di chuyen cho den khi nao sat vao phan tu ben kia thi thoi */
+    margin-top: -1px;    
+}
+.home-product-item__star--gold{
+    color: var(--star-gold-color);
+}
+.home-product-item__sold{
+    font-size: 1.4rem;
+    color: var(--text-color);
+    margin-left: 6px;
+}
+
+
+.home-product-item__origin{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px 10px 10px;
+    color: #595959;
+}
+.home-product-item__brand{
+  
+    font-size: 1.4rem;
+
+}
+.home-product-item__origin-name{
+    font-size: 1.4rem;
+
+
+}
+
+
+
+.home-product-item__favourite{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-size: 1.2rem;
+    position: absolute;
+    margin: 4px 4px;
+    font-weight: 500;
+    border-radius: 2px;
+    left: -8px;
+    top: 10px;
+    line-height: 1.6rem;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+.home-product-item__favourite::after{
+    content: "";
+    border-left: 3px solid transparent;
+    border-top: 3px solid black;
+    position: absolute;
+    top: 16px;
+    left:1px;
+}
+.home-product-item__favourite-icon{
+    font-size: 0.9rem;
+    font-weight: 200;
+}
+.home-product-item__sale{
+    position: absolute;
+    background-color: rgba(255, 216, 64, 0.94);
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    width: 40px;
+    height: 36px;
+    text-align: center;
+    border-top-right-radius: 2px;
+}
+.home-product-item__sale-percent{
+    color:rgba(82, 37, 37, 0.8);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #EE4D2D;
+    margin-top: 3px;
+
+
+}
+.home-product-item__sale-lable{
+    color:rgba(82, 37, 37, 0.8);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--white-color);
+}
+.home-product-item__sale::after{
+    display: block;
+    content: "";
+    border-width: 0 20px 6px 20px;
+    border-color: transparent rgba(255, 216, 64, 0.94) transparent rgba(255, 216, 64, 0.94);
+    border-style: solid;
+    position: absolute;
+    top: 36px;
+    left: 0px;
+}
+/* phan trang */
+
+.home-product__pagination{
+    /* phan nay de them margin cho phan trang nen khong duoc them vao nhung phan chinh */
+    margin-top: 48px;
+    margin-bottom: 32px;
+    padding-left: 0;
+}
+/* footer */
+.footer{
+    padding-top: 16px;
+    border-width: 4px;
+    border-top: solid var(--primary-color);
+}
+.footer__heading{
+    text-transform: uppercase;
+    margin: 12px 0;
+}
+.footer-list{
+    padding-left: 0;
+    list-style-type: none;
+}
+.footer-item{
+
+}
+.footer-item__link{
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: #737373;
+    display: block;
+    padding: 4px 0;
+    display: flex;
+}
+.footer-item__link:hover{
+    color: var(--primary-color);
+}
+.footer-item__link-icon{
+    font-size: 1.8rem;
+    margin-top: -1px;
+    margin-right: 8px;
+}
+.footer-download{
+    display: flex;
+}
+.footer-download__qr{
+    width: 80px;
+    height: 80px;
+    border: 0.4px solid #e0e0e0;
+  
+}
+.footer-download__app{
+    display: flex;
+    flex-direction: column;
+    margin-left: 8px;
+    justify-content:space-evenly;
+   
+}
+.footer-download__app-gogle{
+    height: 16px;
+}
+.footer-download__app-app{
+    height: 16px;
+}
+.footer-box{
+    background-color: #F5F5F5;
+    padding: 8px 0;
+    margin-top: 36px;
+}
+.footer-text{
+    font-size: 1.4rem;
+    margin: 0 ;
+    text-align: center;
+    color: #737373;
+
+    /* margin-left: auto;
+    margin-right: auto; */
+}

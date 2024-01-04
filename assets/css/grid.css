@@ -1,0 +1,655 @@
+
+/* ----------------------DUNG CHUNG CHO TAT CA--------------------------- */
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -4px;
+    margin-right: -4px;
+}
+
+.row.no-gutters{
+    /* SELECTOR NAY CO NGHIA LA CHON PHAN TU CO CA 2 TEN NHU TREN THI SE DUOC AP DUNG VUA CO ROW VUA CO NOGUTTERS SE MANH HON NGUYEN CLASS
+    ROW VA VI THE NO SE GHI DE DUOC PHAN MARGIN CUA ROW O PHIA TREN */
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.row.no-gutters .col{
+    /* CHON NHUNG THE COL LA CON CUA ROW.NO-GUTTERS DE LOAI BO KHOANG TRANG */
+    /* THAY VI PHAI THEM NO-GUTTERS VAO CAC BREAK-POINT TREN PC HAY TABLET THI TA THEM .ROW VAO TRUOC CLASS NAY DE NO DUOC AN TREN MOI TRINH DUYET
+    KHI CO CLASS LA ROW */
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.grid{
+    width: 100%;
+    display: block;
+    padding: 0;
+}
+
+.grid.wide {
+    /* chon tat ca nhung phan tu co ca grid va wide */
+    /* grid la phan luoi bao quanh row va column tu dong can giua noi dung nen dung margin auto  */
+    max-width: 1200px;
+    margin: 0 auto;/*tu dong can giua*/
+    /* max width 1200px thi khi nao man hinh lon hon 1200px thi phan noi dung chi nam trong 1200px */
+}
+
+/* ---------------------------------------------------------DUNG CHUNG CHO TAT CA----------------------------------------------- */
+
+
+
+/* -------------------------DAY LA PHAN  COLUMN  TREN MOBILE--------------------------------- */
+/* row tao hang chua cac cot giup cac cot nam ngang nen dung display flex 
+khi tong chieu ngang cua cac column qua kich thuoc thi cho column  xuong dong nen dung flex-wrap:wrap
+loai bo cac khoang thua do gutter tao ra o 2 phia column nen dung margin am bang chinh gia tri cua padding cho column cac gia tri nay khong co dinh
+no thay doi theo tung trinh duyet khac nhau ma co gia tri khac nhau */
+
+.col{
+/* day la tren pc thi khong co khoang cach giua cac cot */
+padding-left:0px;
+padding-right: 0px;
+}
+
+.c-0 {
+display: none;
+}
+
+.c-1 {
+flex: 0 0 8.33333%;/*gia tri thu 3 la flex-basis: tuc la do rong cua column theo chieu ngang hoac chieu doc tuy theo thuoc tinh 
+flex-direction: o the cha la row hay column neu row la 8.3333% chieu ngang neu column thi la 8.3333% chieu doc*/
+max-width: 8.33333%;/*gioi han kich thuoc chieu ngang hoac chieu doc cua column khong cho qua 8.333%*/
+}
+
+.c-2 {
+flex: 0 0 16.66667%;
+max-width: 16.66667%;
+}
+
+.c-3 {
+flex: 0 0 25%;
+max-width: 25%;
+}
+
+.c-4 {
+flex: 0 0 33.33333%;
+max-width: 33.33333%;
+}
+
+.c-5 {
+flex: 0 0 41.66667%;
+max-width: 41.66667%;
+}
+
+.c-6 {
+flex: 0 0 50%;
+max-width: 50%;
+}
+
+.c-7 {
+flex: 0 0 58.33333%;
+max-width: 58.33333%;
+}
+
+.c-8 {
+flex: 0 0 66.66667%;
+max-width: 66.66667%;
+}
+
+.c-9 {
+flex: 0 0 75%;
+max-width: 75%;
+}
+
+.c-10 {
+flex: 0 0 83.33333%;
+max-width: 83.33333%;
+}
+
+.c-11 {
+flex: 0 0 91.66667%;
+max-width: 91.66667%;
+}
+
+.c-12 {
+flex: 0 0 100%;
+max-width: 100%;
+}
+/* DAY LA PHAN OFFSETS CHINH LA DE CAN CHINH VI TRI CUA CAC COLUMN LINH HOAT HON */
+
+
+.c-o-1 {
+margin-left: 8.33333%;
+}
+
+.c-o-2 {
+margin-left: 16.66667%;
+}
+
+.c-o-3 {
+margin-left: 25%;
+}
+
+.c-o-4 {
+margin-left: 33.33333%;
+}
+
+.c-o-5 {
+margin-left: 41.66667%;
+}
+
+.c-o-6 {
+margin-left: 50%;
+}
+
+.c-o-7 {
+margin-left: 58.33333%;
+}
+
+.c-o-8 {
+margin-left: 66.66667%;
+}
+
+.c-o-9 {
+margin-left: 75%;
+}
+
+.c-o-10 {
+margin-left: 83.33333%;
+}
+
+.c-o-11 {
+margin-left: 91.66667%;
+}
+
+
+
+
+
+/*------------------------------------------ HET PHAN ROW COLUMN VA GRID  TREN MOBILE ----------------------------------------------*/
+
+/* -------------------------------------------DOI TUONG ROW VA COLUMN TREN TABLET---------------------------------------- */
+@media (min-width:740px){
+.row{
+    /* doi tuong row xoa bo khoang trang tren tablet va pc */
+    /* display: flex;
+     flex-wrap: wrap; */ 
+     /* hai thuoc tinh tren khong can vi no an theo row o ben tren con o day row chi co chuc nang ghi de lai phan margin  o ben tren 
+     vi no duoc viet sau  */
+    margin-left: -8px;
+    margin-right: -8px;
+}
+
+.col {
+    padding-left:8px;
+    padding-right: 8px;
+}
+
+.m-0 {
+    display: none;
+}
+
+.m-1,
+.m-2,
+.m-3,
+.m-4,
+.m-5,
+.m-6,
+.m-7,
+.m-8,
+.m-9,
+.m-10,
+.m-11,
+.m-12 {
+    display: block;
+}
+
+.m-1 {
+    flex: 0 0 8.33333%;
+    max-width: 8.33333%;
+}
+
+.m-2 {
+    flex: 0 0 16.66667%;
+    max-width: 16.66667%;
+}
+
+.m-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+
+.m-4 {
+    flex: 0 0 33.33333%;
+    max-width: 33.33333%;
+}
+
+.m-5 {
+    flex: 0 0 41.66667%;
+    max-width: 41.66667%;
+}
+
+.m-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.m-7 {
+    flex: 0 0 58.33333%;
+    max-width: 58.33333%;
+}
+
+.m-8 {
+    flex: 0 0 66.66667%;
+    max-width: 66.66667%;
+}
+
+.m-9 {
+    flex: 0 0 75%;
+    max-width: 75%;
+}
+
+.m-10 {
+    flex: 0 0 83.33333%;
+    max-width: 83.33333%;
+}
+
+.m-11 {
+    flex: 0 0 91.66667%;
+    max-width: 91.66667%;
+}
+
+.m-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+
+
+.m-o-1 {
+    margin-left: 8.33333%;
+}
+
+.m-o-2 {
+    margin-left: 16.66667%;
+}
+
+.m-o-3 {
+    margin-left: 25%;
+}
+
+.m-o-4 {
+    margin-left: 33.33333%;
+}
+
+.m-o-5 {
+    margin-left: 41.66667%;
+}
+
+.m-o-6 {
+    margin-left: 50%;
+}
+
+.m-o-7 {
+    margin-left: 58.33333%;
+}
+
+.m-o-8 {
+    margin-left: 66.66667%;
+}
+
+.m-o-9 {
+    margin-left: 75%;
+}
+
+.m-o-10 {
+    margin-left: 83.33333%;
+}
+
+.m-o-11 {
+    margin-left: 91.66667%;
+}
+
+
+
+}
+
+/* -----------------------------------HET PHAN ROW VA COLUMN TREN TABLET------------------------------------------------- */
+
+
+
+/* -----------------------------------DOI TUONG ROW  VA COLUMN TREN PC----------------------------------------------------*/
+@media (min-width:1113px){
+
+.row {
+    /* display: flex;
+    flex-wrap: wrap;  khong can vi no de an theo row o tren*/
+    margin-left: -12px;
+    margin-right: -12px;
+}
+
+.row.sm-gutter {
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+.col {
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.row.sm-gutter .col {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.l-0 {
+    display: none;
+}
+
+.l-1,
+.l-2,
+.l-2-4,
+.l-3,
+.l-4,
+.l-5,
+.l-6,
+.l-7,
+.l-8,
+.l-9,
+.l-10,
+.l-11,
+.l-12 {
+    display: block;
+}
+
+.l-1 {
+    flex: 0 0 8.33333%;
+    max-width: 8.33333%;
+}
+
+.l-2 {
+    flex: 0 0 16.66667%;
+    max-width: 16.66667%;
+}
+.l-7-2{
+    flex: 0 0 60%;
+    max-width: 60%;
+}
+.l-2-4 {
+    flex: 0 0 20%;
+    max-width: 20%;
+}
+
+.l-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+
+.l-4 {
+    flex: 0 0 33.33333%;
+    max-width: 33.33333%;
+}
+
+.l-5 {
+    flex: 0 0 41.66667%;
+    max-width: 41.66667%;
+}
+
+.l-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.l-7 {
+    flex: 0 0 58.33333%;
+    max-width: 58.33333%;
+}
+
+.l-8 {
+    flex: 0 0 66.66667%;
+    max-width: 66.66667%;
+}
+
+.l-9 {
+    flex: 0 0 75%;
+    max-width: 75%;
+}
+
+.l-10 {
+    flex: 0 0 83.33333%;
+    max-width: 83.33333%;
+}
+
+.l-11 {
+    flex: 0 0 91.66667%;
+    max-width: 91.66667%;
+}
+
+.l-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+
+
+.l-o-1 {
+    margin-left: 8.33333%;
+}
+
+.l-o-2 {
+    margin-left: 16.66667%;
+}
+
+.l-o-3 {
+    margin-left: 25%;
+}
+
+.l-o-4 {
+    margin-left: 33.33333%;
+}
+
+.l-o-5 {
+    margin-left: 41.66667%;
+}
+
+.l-o-6 {
+    margin-left: 50%;
+}
+
+.l-o-7 {
+    margin-left: 58.33333%;
+}
+
+.l-o-8 {
+    margin-left: 66.66667%;
+}
+
+.l-o-9 {
+    margin-left: 75%;
+}
+
+.l-o-10 {
+    margin-left: 83.33333%;
+}
+
+.l-o-11 {
+    margin-left: 91.66667%;
+}
+
+
+}
+/* -----------------------------HET PHAN ROW VA COLUMN TREN PC---------------------------------------- */
+
+/*-----------------------------DOI TUONG GRID TREN TABLET VA PC PHAN GIAI THAP--------------------------*/
+@media (min-width:740px) and (max-width:1023px){
+.wide{
+    width: 644px;
+    /* margin: 0 auto; */
+
+}
+}
+/* ---------------------------- DOI TUONG GRID TREN MAN HINH PC PHAN GIAI CAO----------------------------*/
+@media (min-width:1024px) and (max-width:1239px){
+.wide{
+    width: 984px;
+    /* margin: 0 auto; */
+}
+.wide .row{
+    margin-left: -12px;
+    margin-right: -12px;
+}
+
+.wide .row.sm-gutter {
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+.wide .col {
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.wide .row.sm-gutter .col {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.wide .l-0 {
+    display: none;
+}
+
+.wide .l-1,
+.wide .l-2,
+.wide .l-2-4,
+.wide .l-3,
+.wide .l-4,
+.wide .l-5,
+.wide .l-6,
+.wide .l-7,
+.wide .l-8,
+.wide .l-9,
+.wide .l-10,
+.wide .l-11,
+.wide .l-12 {
+    display: block;
+}
+
+.wide .l-1 {
+    flex: 0 0 8.33333%;
+    max-width: 8.33333%;
+}
+
+.wide .l-2 {
+    flex: 0 0 16.66667%;
+    max-width: 16.66667%;
+}
+
+.wide .l-2-4 {
+    flex: 0 0 20%;
+    max-width: 20%;
+}
+
+.wide .l-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+
+.wide .l-4 {
+    flex: 0 0 33.33333%;
+    max-width: 33.33333%;
+}
+
+.wide .l-5 {
+    flex: 0 0 41.66667%;
+    max-width: 41.66667%;
+}
+
+.wide .l-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.wide .l-7 {
+    flex: 0 0 58.33333%;
+    max-width: 58.33333%;
+}
+
+.wide .l-8 {
+    flex: 0 0 66.66667%;
+    max-width: 66.66667%;
+}
+
+.wide .l-9 {
+    flex: 0 0 75%;
+    max-width: 75%;
+}
+
+.wide .l-10 {
+    flex: 0 0 83.33333%;
+    max-width: 83.33333%;
+}
+
+.wide .l-11 {
+    flex: 0 0 91.66667%;
+    max-width: 91.66667%;
+}
+
+.wide .l-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+
+
+
+
+.wide .l-o-1 {
+    margin-left: 8.33333%;
+}
+
+.wide .l-o-2 {
+    margin-left: 16.66667%;
+}
+
+.wide .l-o-3 {
+    margin-left: 25%;
+}
+
+.wide .l-o-4 {
+    margin-left: 33.33333%;
+}
+
+.wide .l-o-5 {
+    margin-left: 41.66667%;
+}
+
+.wide .l-o-6 {
+    margin-left: 50%;
+}
+
+.wide .l-o-7 {
+    margin-left: 58.33333%;
+}
+
+.wide .l-o-8 {
+    margin-left: 66.66667%;
+}
+
+.wide .l-o-9 {
+    margin-left: 75%;
+}
+
+.wide .l-o-10 {
+    margin-left: 83.33333%;
+}
+
+.wide .l-o-11 {
+    margin-left: 91.66667%;
+}
+
+
+
+
+}
